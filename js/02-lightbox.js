@@ -20,33 +20,33 @@
 
 // 4) Подивися в документації секцію «Options» і додай відображення підписів до зображень з атрибута alt. Нехай підпис буде знизу і з'являється через 250 мілісекунд після відкриття зображення.
 
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 console.log(galleryItems);
 
-const galleryRef = document.querySelector('.gallery');
+const galleryRef = document.querySelector(".gallery");
 
 galleryRef.insertAdjacentHTML(
-  'beforeend',
+  "beforeend",
   galleryItems
     .map(
-      galleryItem =>
+      (galleryItem) =>
         `<div class="gallery__item">
           <a class="gallery__item" href="${galleryItem.original}">
           <img class="gallery__image" src="${galleryItem.preview}" alt="${galleryItem.description}" />
           </a></div>`
     )
-    .join('')
+    .join("")
 );
 
-galleryRef.addEventListener('click', activateLightbox);
+galleryRef.addEventListener("click", activateLightbox);
 
 function activateLightbox(e) {
   e.preventDefault();
 
-  var lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
+  var lightbox = new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
     captionDelay: 250,
     overlayOpacity: 0.9,
     animationSpeed: 300,
